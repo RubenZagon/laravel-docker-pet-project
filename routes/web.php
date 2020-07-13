@@ -24,3 +24,11 @@ Route::get('/hola/{name?}', function ($name = "usuario") {
 Route::get('/usuarios', function () {
     return "Usuarios";
 });
+
+Route::get('/usuarios/{userId}/edit', function ($userId) {
+    settype($userId, "integer");
+    if ($userId === 0) {
+        throw new Exception("oh ohhh");
+    }
+    return "Vas a editar el usuario $userId";
+});

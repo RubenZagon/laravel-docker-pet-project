@@ -33,4 +33,19 @@ class ExampleTest extends TestCase
             ->assertStatus(200)
             ->assertSee('Usuarios');
     }
+
+    /** @test */
+    function it_load_the_user_by_id_3()
+    {
+        $this->get('/usuarios/3/edit')
+            ->assertStatus(200)
+            ->assertSee('3');
+    }
+
+    /** @test */
+    function only_accept_integers_on_the_ID()
+    {
+        $this->get('/usuarios/text/edit')
+            ->assertStatus(500);
+    }
 }
