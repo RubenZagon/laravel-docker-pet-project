@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/hola/{name?}', function ($name = "usuario") {
     return "hola $name";
 });
+
+Route::get('/usuarios', function () {
+    return "Usuarios";
+});

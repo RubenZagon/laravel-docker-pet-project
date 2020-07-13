@@ -18,4 +18,19 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /** @test */
+    function it_loads_the_users_list_page()
+    {
+        $this->get('/usuarios')
+            ->assertStatus(200)
+            ->assertSee('Usuarios');
+    }
+
+    function test_it_loads_the_users_list_page() // Another way to launch test with prefix test_
+    {
+        $this->get('/usuarios')
+            ->assertStatus(200)
+            ->assertSee('Usuarios');
+    }
 }
